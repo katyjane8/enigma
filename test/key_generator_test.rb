@@ -15,6 +15,7 @@ class KeyGeneratorTest < Minitest::Test
     kg = KeyGenerator.new
 
     result = kg.generate_key
+
     assert_equal 5, result.length
   end
 
@@ -22,15 +23,20 @@ class KeyGeneratorTest < Minitest::Test
    kg = KeyGenerator.new
 
    result = kg.generate_key.chars
+
    assert_equal result[0], result.shift
    assert_equal result[0], result.shift
    assert_equal 3, result.length
   end
 
   def test_can_we_get_the_second_two_digits_of_our_key
-    skip
     kg = KeyGenerator.new
 
-    assert_equal 5, kg.b_rotation
+    result = kg.generate_key.chars
+    true_result = result.shift
+
+    assert_equal result[0], result.shift
+    assert_equal result[0], result.shift
+    assert_equal 2, result.length
   end
 end
