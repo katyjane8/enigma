@@ -24,4 +24,12 @@ class KeyGenerator
   def d_rotation(d_key = @key_helper)
     d_key[3] + d_key[4]
   end
+
+  def run
+    puts @key_helper
+    puts a_rotation(a_key = @key_helper)
+    puts b_rotation(b_key = @key_helper)
+    puts c_rotation(c_key = @key_helper)
+    puts d_rotation(d_key = @key_helper)
+  end
 end
