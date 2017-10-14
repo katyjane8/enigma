@@ -2,8 +2,8 @@ require './lib/key_generator'
 
 kg = KeyGenerator.new
 kg.run
-# oc = OffsetCalculator.new
-# oc.run
+oc = OffsetCalculator.new
+oc.run
 
 # something like this for the runner file here:
 

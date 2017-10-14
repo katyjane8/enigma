@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/offset_calculator'
+require './lib/offset_calculator'
 require_relative 'test_helper'
 
 class OffsetCalculatorTest < Minitest::Test

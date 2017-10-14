@@ -1,5 +1,4 @@
 require 'date'
-require 'pry'
 
 class OffsetCalculator
   attr_reader :date
