@@ -17,11 +17,11 @@ class KeyGenerator
     b_key[1] + b_key[2]
   end
 
-  def c_rotation
+  def c_rotation(c_key = @key_helper)
     c_key[2] + c_key[3]
   end
 
-  def d_rotation
+  def d_rotation(d_key = @key_helper)
     d_key[3] + d_key[4]
   end
 end

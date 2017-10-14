@@ -29,16 +29,33 @@ class KeyGeneratorTest < Minitest::Test
    assert_equal "12", result
   end
 
-  def test_can_we_get_the_second_two_digits_of_our_key
+  def test_can_we_get_the_second_and_third_digits_of_our_key
     kg = KeyGenerator.new
 
     array = ["1", "2", "3", "4", "5"]
     result = kg.b_rotation(array)
-    p kg.key_helper
-    p kg.a_rotation
-    p kg.b_rotation
 
     assert_equal 2, result.length
     assert_equal "23", result
+  end
+
+  def test_can_we_get_the_third_and_fourth_digits_of_our_key
+    kg = KeyGenerator.new
+
+    array = ["1", "2", "3", "4", "5"]
+    result = kg.c_rotation(array)
+
+    assert_equal 2, result.length
+    assert_equal "34", result
+  end
+
+  def test_can_we_get_the_last_two_digits_of_our_key
+    kg = KeyGenerator.new
+
+    array = ["1", "2", "3", "4", "5"]
+    result = kg.d_rotation(array)
+
+    assert_equal 2, result.length
+    assert_equal "45", result
   end
 end
