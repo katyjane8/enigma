@@ -1,0 +1,2 @@
+
+kg = KeyGenerator.new
