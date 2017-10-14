@@ -13,3 +13,12 @@
 # => "this is so secret ..end.."
 # > e.crack(output) # Date is optional, use today's date
 # => "this is so secret ..end.."
+#
+# def encrypt
+# end
+#
+# def decrypt
+# end
+#
+# def crack
+# end
