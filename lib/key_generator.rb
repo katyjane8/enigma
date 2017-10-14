@@ -1,22 +1,27 @@
 class KeyGenerator
+  attr_reader :key_helper
 
   def initialize
-    @key_to_array = generate_key.chars
+    @key_helper = generate_key
   end
 
   def generate_key
     5.times.map{rand(10)}.join
   end
 
-  def a_rotation
-    # a_key = generate_key.chars
-    @key_to_array
-    2.times.map{@key_to_array.shift}.join
+  def a_rotation(a_key = @key_helper)
+    a_key[0] + a_key[1]
   end
 
-  def b_rotation
-    @key_to_array
-    b_key.shift
-    2.times.map{@key_to_array.shift}.join
+  def b_rotation(b_key = @key_helper)
+    b_key[1] + b_key[2]
+  end
+
+  def c_rotation
+    c_key[2] + c_key[3]
+  end
+
+  def d_rotation
+    d_key[3] + d_key[4]
   end
 end

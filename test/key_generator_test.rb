@@ -22,21 +22,23 @@ class KeyGeneratorTest < Minitest::Test
  def test_can_we_get_the_first_two_digits_of_our_key
    kg = KeyGenerator.new
 
-   result = kg.generate_key.chars
+   array = ["1", "2", "3", "4", "5"]
+   result = kg.a_rotation(array)
 
-   assert_equal result[0], result.shift
-   assert_equal result[0], result.shift
-   assert_equal 3, result.length
+   assert_equal 2, result.length
+   assert_equal "12", result
   end
 
   def test_can_we_get_the_second_two_digits_of_our_key
     kg = KeyGenerator.new
 
-    result = kg.generate_key.chars
-    true_result = result.shift
+    array = ["1", "2", "3", "4", "5"]
+    result = kg.b_rotation(array)
+    p kg.key_helper
+    p kg.a_rotation
+    p kg.b_rotation
 
-    assert_equal result[0], result.shift
-    assert_equal result[0], result.shift
     assert_equal 2, result.length
+    assert_equal "23", result
   end
 end
