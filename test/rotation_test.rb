@@ -36,15 +36,12 @@ class RotationTest < Minitest::Test
     kg = KeyGenerator.new
     oc = OffsetCalculator.new
     rotation = Rotation.new
-
     array = ["1", "2", "3", "4", "5"]
     key_stuff = kg.a_rotation(array)
-
     date = "101517"
     # squared result is 1289
     offset_stuff = oc.a_offset
-
-    result = kg.a_rotation(array).to_i + oc.a_offset.to_i
+    result = rotation.first_rotation
 
     assert_equal 13, result
   end
@@ -89,7 +86,7 @@ class RotationTest < Minitest::Test
     rotation = Rotation.new
 
     array = ["1", "2", "3", "4", "5"]
-    key_stuff = kg.a_rotation(array)
+    key_stuff = kg.d_rotation(array)
 
     date = "101517"
     # squared result is 1289
