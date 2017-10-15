@@ -10,11 +10,10 @@ class OffsetCalculator
 
   def date_format
     string = "#{@date.mday}#{@date.mon}#{@date.year.to_s[-2, 2]}"
-    string.to_i
   end
 
   def date_squared
-    date_format ** 2
+    date_format.to_i ** 2
   end
   # should we rename our method so that we don't have a variable of the same name?
   def offset
