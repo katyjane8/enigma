@@ -1,11 +1,13 @@
 require_relative 'key_generator'
+require "pry"
 
 class OffsetCalculator
-  attr_reader :date, :kg
+  attr_reader :date, :kg, :a_rot, :b_rot, :c_rot, :d_rot
 
   def initialize(kg = KeyGenerator.new, date = Date.today)
     @date = date
     @kg = kg
+    @d_rot = d_rot
   end
 
   def date_format
@@ -16,24 +18,16 @@ class OffsetCalculator
     date_format.to_i ** 2
   end
   # should we rename our method so that we don't have a variable of the same name?
-  def offset
+  def date_array
     convert_offset = date_squared.to_s.chars
     convert_offset[-4, 4]
   end
 
-  def a_offset
-    offset[0]
-  end
-
-  def b_offset
-    offset[1]
-  end
-
-  def c_offset
-    offset[2]
-  end
-
-  def d_offset
-    offset[3]
+  def offset
+    binding.pry
+    a_rot = kg.a_rotation + date_array[0].to_i
+    b_rot = kg.b_rotation + date_array[1].to_i
+    c_rot = kg.c_rotation + date_array[2].to_i
+    @d_rot = kg.d_rotation + date_array[3].to_i
   end
 end
