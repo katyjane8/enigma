@@ -2,12 +2,16 @@ require_relative 'key_generator'
 require "pry"
 
 class OffsetCalculator
-  attr_reader :date, :kg, :a_rot, :b_rot, :c_rot, :d_rot
+  attr_reader :kg,
+              :date,
+              :a_rot,
+              :b_rot,
+              :c_rot,
+              :d_rot
 
   def initialize(kg = KeyGenerator.new, date = Date.today)
+    @kg   = kg
     @date = date
-    @kg = kg
-    @d_rot = d_rot
   end
 
   def date_format
@@ -24,10 +28,9 @@ class OffsetCalculator
   end
 
   def offset
-    binding.pry
     a_rot = kg.a_rotation + date_array[0].to_i
     b_rot = kg.b_rotation + date_array[1].to_i
     c_rot = kg.c_rotation + date_array[2].to_i
-    @d_rot = kg.d_rotation + date_array[3].to_i
+    d_rot = kg.d_rotation + date_array[3].to_i
   end
 end

@@ -1,8 +1,9 @@
 require './lib/key_generator'
+require './lib/offset_calculator'
 
 kg = KeyGenerator.new
 kg.run
-oc = OffsetCalculator.new
+oc = OffsetCalculator.new(kg, Date.today)
 oc.run
 
 # something like this for the runner file here:
