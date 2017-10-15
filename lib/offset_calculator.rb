@@ -1,17 +1,24 @@
-require 'date'
+require_relative 'key_generator'
 
 class OffsetCalculator
-  attr_reader :date
-  def initialize
-    @date = Time.now.strftime("%m%d%y")
+  attr_reader :date, :kg
+
+  def initialize(kg = KeyGenerator.new, date = Date.today)
+    @date = date
+    @kg = kg
   end
 
-  def date_squared(date)
-    @date.to_i ** 2
+  def date_format
+    string = "#{@date.mday}#{@date.mon}#{@date.year.to_s[-2, 2]}"
+    string.to_i
+  end
+
+  def date_squared
+    date_format ** 2
   end
   # should we rename our method so that we don't have a variable of the same name?
   def offset
-    convert_offset = date_squared(date).to_s.chars
+    convert_offset = date_squared.to_s.chars
     convert_offset[-4, 4]
   end
 
