@@ -6,14 +6,15 @@ class Rotation
               :offset_calculator
 
   def initialize
-    require "pry"; binding.pry
-    @key_generator = key_generator
-    @offset_calculator = offset_calculator
+    @key_generator = Key_Generator.new
+    @offset_key= Offset_Calculator.new
+    @foo = foo
+    @bar = bar
   end
 
-  def first_rotation
+  def first_rotation(@key_generator, @offset_key)
     require "pry"; binding.pry
-    @key_generator.a_rotation + @offset_calculator.offset
+    @key_generator.a_rotation + @offset_key.a_offset
   end
 
 end
