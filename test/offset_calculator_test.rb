@@ -12,21 +12,21 @@ class OffsetCalculatorTest < Minitest::Test
 
   def test_date_squared
     oc = OffsetCalculator.new
-    date = "101417"
+    date = "101517"
 
     result = oc.date_squared(date)
 
-    assert_equal 10285407889, result
+    assert_equal 10305701289, result
   end
 
   def test_offset
     oc = OffsetCalculator.new
-    date = "101417"
+    date = "101517"
 
     result = oc.date_squared(date)
 
     assert_equal 4, oc.offset.length
-    assert_equal "7889", oc.offset.join
+    assert_equal "1289", oc.offset.join
   end
 
 # ask instructor if this needs to happen
@@ -41,25 +41,25 @@ class OffsetCalculatorTest < Minitest::Test
 
   def test_if_a_offset_grabs_index_zero
     oc = OffsetCalculator.new
-    date = "101417"
+    date = "101517"
 
     result = oc.offset
 
-    assert_equal "7", result[0]
+    assert_equal "1", result[0]
   end
 
   def test_if_b_offset_grabs_index_one
     oc = OffsetCalculator.new
-    date = "101417"
+    date = "101517"
 
     result = oc.offset
 
-    assert_equal "8", result[1]
+    assert_equal "2", result[1]
   end
 
   def test_if_c_offset_grabs_index_two
     oc = OffsetCalculator.new
-    date = "101417"
+    date = "101517"
 
     result = oc.offset
 
@@ -68,7 +68,7 @@ class OffsetCalculatorTest < Minitest::Test
 
   def test_if_d_offset_grabs_index_three
     oc = OffsetCalculator.new
-    date = "101417"
+    date = "101517"
 
     result = oc.offset
 
