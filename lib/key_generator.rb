@@ -1,5 +1,3 @@
-require 'pry'
-
 class KeyGenerator
   attr_reader :key_helper
 

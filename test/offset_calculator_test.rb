@@ -24,7 +24,7 @@ class OffsetCalculatorTest < Minitest::Test
     oc = OffsetCalculator.new(kg, Date.today)
     result = oc.date_squared
 
-    assert_equal 22806134289, result
+    assert_equal 25926474289, result
   end
 
   def test_date_array

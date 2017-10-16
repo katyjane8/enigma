@@ -1,5 +1,4 @@
 require_relative 'offset_calculator'
-require 'pry'
 
 class Encrypt
   attr_reader :oc

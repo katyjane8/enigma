@@ -1,6 +1,5 @@
 require_relative 'key_generator'
 require 'date'
-require "pry"
 
 class OffsetCalculator
   attr_reader :kg,
@@ -16,7 +15,7 @@ class OffsetCalculator
   end
 
   def date_format
-    string = "#{@date.mday}#{@date.mon}#{@date.year.to_s[-2, 2]}"
+    "#{@date.mday}#{@date.mon}#{@date.year.to_s[-2, 2]}"
   end
 
   def date_squared
