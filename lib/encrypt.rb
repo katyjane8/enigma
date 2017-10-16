@@ -30,10 +30,11 @@ class Encrypt
   def output
     puts "Created -- with the key #{kg.key_output} and date #{oc.date_format}."
   end
-end
 
 enc = Encrypt.new
+oc = OffsetCalculator.new
 puts enc.encrypt_letter("e")
 puts enc.encrypt("help help help")
 puts enc.encrypt("ohh Shit we got encrpytion")
-puts enc.output
+puts enc.cipher
+puts enc.cipher.invert

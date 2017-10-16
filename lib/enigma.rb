@@ -1,24 +1,34 @@
-# > require './lib/enigma'
-# > e = Enigma.new
-# > my_message = "this is so secret ..end.."
-# > output = e.encrypt(my_message)
-# => # encrypted message here
-# > output = e.encrypt(my_message, "12345", Date.today) #key and date are optional (gen random key and use today's date)
-# => # encrypted message here
-# > e.decrypt(output, "12345", Date.today)
-# => "this is so secret ..end.."
-# > e.decrypt(output, "12345") # Date is optional (use today's date)
-# => "this is so secret ..end.."
-# > e.crack(output, Date.today)
-# => "this is so secret ..end.."
-# > e.crack(output) # Date is optional, use today's date
-# => "this is so secret ..end.."
-#
-# def encrypt
-# end
-#
-# def decrypt
-# end
-#
-# def crack
-# end
+require '../enigma_runner'
+
+file_in        = ARGV[0]
+file_out       = ARGV[1]
+key            = ARGV[2]
+date           = ARGV[3]
+
+
+encrypt_this = File.read(file_in).chomp
+
+encrypt = Encrypt.new(encrypt_this)
+
+output = File.open(file_out, "w+")
+output.write(encrypt.decrypt)
+
+puts puts "Created #{file_out} with the key #{kg.key_output} and date #{oc.date_format}."
+
+  #call all files!!
+
+  # something like this for the runner file here:
+
+  # require './lib/decipher'
+  #
+  # file_in = ARGV[0]
+  # file_out = ARGV[1]
+  #
+  # input_data = File.read(file_in).chomp
+  #
+  # decipher = Decipher.new(input_data)
+  #
+  # output = File.open(file_out, "w+")
+  # output.write(decipher.translate_to_english)
+  #
+  # puts "Created #{ARGV[1]} containing #{decipher.input_data.length} characters."
