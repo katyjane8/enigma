@@ -29,11 +29,7 @@ class KeyGenerator
     d_rot.to_i
   end
 
-  def run
-    puts @key_helper
-    puts a_rotation(a_key = @key_helper)
-    puts b_rotation(b_key = @key_helper)
-    puts c_rotation(c_key = @key_helper)
-    puts d_rotation(d_key = @key_helper)
+  def key_output
+    @key_helper
   end
 end
