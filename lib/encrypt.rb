@@ -23,6 +23,7 @@ class Encrypt
 
   def encrypt(string, rotation = oc.offset)
     letters = string.split("")
+    require "pry"; binding.pry
     results = letters.collect { |letter| encrypted_letter = encrypt_letter(letter, rotation) }
     results.join
   end
@@ -30,6 +31,7 @@ class Encrypt
   def output
     puts "Created -- with the key #{kg.key_output} and date #{oc.date_format}."
   end
+end 
 
 enc = Encrypt.new
 oc = OffsetCalculator.new
