@@ -4,7 +4,7 @@ require './lib/offset_calculator'
 kg = KeyGenerator.new
 kg.run
 oc = OffsetCalculator.new(kg, Date.today)
-oc.run
+oc.offset
 
 # something like this for the runner file here:
 

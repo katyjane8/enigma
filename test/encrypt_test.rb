@@ -9,4 +9,16 @@ class EncryptTest < Minitest::Test
 
     assert_instance_of Encrypt, e
   end
+
+  def test_cipher_method
+
+  end
+
+  def test_we_can_encrypt_a_single_letter
+
+  end
+  
+  def test_we_can_encrypt_a_string
+
+  end
 end
