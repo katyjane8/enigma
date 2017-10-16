@@ -1,37 +1,25 @@
-require_relative 'rotation'
+require_relative 'offset_calculator'
 require 'pry'
 
 class Encrypt
-  attr_accessor :key, :offset
-
-  def initialize
-    @count = 0
+  def initialize(oc = OffsetCalculator.new)
+    @oc = oc
   end
-
-  def hash_zip(rotation)
+  
+  def cipher(rotation)
     characters = ("a".."z").to_a
     rotated_characters = characters.rotate(rotation)
     Hash[characters.zip(rotated_characters)]
   end
 
-  def encryption(count)
-    if count == 0
-      hash_zip(first_rotation)
-      count += 1
-    elsif count == 1
-      rot.second_rotation
-      count += 1
-    elsif count == 2
-      rot.third_rotation
-      count += 1
-    elsif count == 3
-      rot.fourth_rotation
-      count += 1
-    else
-      @count = 0
-      encryption(count)
-    end
+  def encrypt_letter(letter, rotation)
+    cipher_for_rotation = cipher(rotation)
+    cipher_for_rotation[letter]
   end
 
+  def encrypt(string, rotation)
+    letters = string.split("")
+    results = letters.collect { |letter| encrypted_letter = encrypt_letter(letter, rotation) }
+    results.join
+  end
 end
-rot = Rotation.new
