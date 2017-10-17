@@ -9,23 +9,23 @@ class KeyGenerator
     5.times.map{rand(10)}.join
   end
 
-  def a_rotation(a_key = @key_helper)
-    a_rot = a_key[0] + a_key[1]
+  def a_rotation(key = @key_helper)
+    a_rot = key[0] + key[1]
     a_rot.to_i
   end
 
-  def b_rotation(b_key = @key_helper)
-    b_rot = b_key[1] + b_key[2]
+  def b_rotation(key = @key_helper)
+    b_rot = key[1] + key[2]
     b_rot.to_i
   end
 
-  def c_rotation(c_key = @key_helper)
-    c_rot = c_key[2] + c_key[3]
+  def c_rotation(key = @key_helper)
+    c_rot = key[2] + key[3]
     c_rot.to_i
   end
 
-  def d_rotation(d_key = @key_helper)
-    d_rot = d_key[3] + d_key[4]
+  def d_rotation(key = @key_helper)
+    d_rot = key[3] + key[4]
     d_rot.to_i
   end
 

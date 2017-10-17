@@ -28,3 +28,8 @@ class Decrypt
      puts "Created -- with the key #{kg.key_output} and date #{oc.date_format}."
    end
 end
+
+# crack
+# solve it
+# brute force
+# rainbow tables
