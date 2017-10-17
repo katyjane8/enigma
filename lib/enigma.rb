@@ -13,7 +13,7 @@ encrypt = Encrypt.new(encrypt_this)
 output = File.open(file_out, "w+")
 output.write(encrypt.decrypt)
 
-puts puts "Created #{file_out} with the key #{kg.key_output} and date #{oc.date_format}."
+puts "Created #{file_out} with the key #{kg.key_output} and date #{oc.date_format}."
 
   #call all files!!
 
