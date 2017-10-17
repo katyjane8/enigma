@@ -43,6 +43,7 @@ class Encrypt
     d_string = splitter.each_with_index.map { |splits, i| splits if i% 4 == 3 }
     d_string.compact
   end
+end
 
   # def alla_shazam(rotation)
   # call cipher module - input oc.a_offset as argument
