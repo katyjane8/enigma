@@ -16,6 +16,14 @@ class EnigmaTest < Minitest::Test
     assert_equal "d", ciph
   end
 
+  def test_enigma_zips_hash
+    e = Enigma.new
+    oc = OffsetCalculator.new
+    result = e.hash_zip(rotation = oc.offset)
+
+    assert_instance_of Hash, result
+  end
+
   def test_encrypt_method_takes_arguements
     e = Enigma.new
 
