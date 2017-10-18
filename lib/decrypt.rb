@@ -18,33 +18,24 @@ class Decrypt
     @encrypt     = encrypt
   end
 
-
-
   def what_is_the_key_code
     puts "Please enter the Key."
     key_answer = gets.chomp
     guess = fetch_guess(key_answer)
     puts "You have entered the key: #{guess}."
-
-    # puts "Please enter the Date (DDMMYY)."
-    # date_answer = gets.chomp
-    #
-    # until date_answer.num_digits == 6 && date_answer.class == Integer
-    #   puts "Please enter a valid six digit numeric date in DDMMYY format."
-    #   date_answer = gets.chomp
-    # end
-    # return puts "You have entered the date: #{date_answer}."
-    #
-    # date_answer ** 2
-    # convert_offset = date_squared.to_s.chars
-    # convert_offset[-4, 4]
-
-end
   end
 
-  def calculate_final_key
-    offset_calc.date_squared
-    offset_calc.date_array
+  def what_is_the_date
+    puts "Input a date in DDMMYY format."
+    date_answer = gets.chomp
+    date = fetch_date(date_answer)
+    puts "You have entered the date: #{date}"
+  end
+
+  #   date_answer ** 2
+  #   convert_offset = date_squared.to_s.chars
+  #   convert_offset[-4, 4]
+  # end
 
 # key -> rotation
 # offset -> square -> array -> key
@@ -55,7 +46,7 @@ end
 # output decrypted key
 
 
-end
+
 
 def fetch_guess(key_answer)
   until valid_guess?(key_answer)
@@ -66,10 +57,20 @@ def fetch_guess(key_answer)
 end
 
 def valid_guess?(key_answer)
-  key_answer.to_i.class == Integer && key_answer.to_i.to_s.length == 5
+  key_answer.to_i.to_s.length == 5
 end
 
+def fetch_date(date_answer)
+  until valid_date?(date_answer)
+    puts "Please enter a valid six digit numeric date in DDMMYY format."
+    date_answer = gets.chomp
+  end
+  date_answer
+end
 
-
+def valid_date?(date_answer)
+  date_answer.to_i.to_s.length == 6
+end
+end
 smush = Decrypt.new
-smush.what_is_the_key_code
+smush.what_is_the_date
