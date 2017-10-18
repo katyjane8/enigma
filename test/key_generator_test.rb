@@ -24,7 +24,11 @@ class KeyGeneratorTest < Minitest::Test
    result = key_gen.a_rotation(array)
 
    assert_equal 2, result.to_s.length
+<<<<<<< HEAD
    assert_equal 12, result
+=======
+   assert_equal "12", result
+>>>>>>> katy
   end
 
   def test_can_we_get_the_second_and_third_digits_of_our_key
@@ -33,6 +37,10 @@ class KeyGeneratorTest < Minitest::Test
     array = ["1", "2", "3", "4", "5"]
     result = key_gen.b_rotation(array)
 
+<<<<<<< HEAD
+=======
+    assert_equal 2, result.to_s.length
+>>>>>>> katy
     assert_equal 23, result
   end
 
@@ -41,6 +49,10 @@ class KeyGeneratorTest < Minitest::Test
     array = ["1", "2", "3", "4", "5"]
     result = key_gen.c_rotation(array)
 
+<<<<<<< HEAD
+=======
+    assert_equal 2, result.to_s.length
+>>>>>>> katy
     assert_equal 34, result
   end
 
@@ -50,6 +62,10 @@ class KeyGeneratorTest < Minitest::Test
     array = ["1", "2", "3", "4", "5"]
     result = key_gen.d_rotation(array)
 
+<<<<<<< HEAD
+=======
+    assert_equal 2, result.to_s.length
+>>>>>>> katy
     assert_equal 45, result
   end
 end

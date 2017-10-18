@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require "minitest/autorun"
 require "minitest/pride"
 require "./lib/offset_calculator"
@@ -40,3 +41,5 @@ class EncryptTest < Minitest::Test
     refute_equal "!@*", string
   end
 end
+=======
+>>>>>>> katy
