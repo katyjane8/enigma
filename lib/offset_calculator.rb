@@ -24,22 +24,13 @@ class OffsetCalculator
   end
 
   def offset_key
-    
-  end
-
-  def a_offset
-    a_rotation = key_gen.rotation[0] + date_array[0].to_i
-  end
-
-  def b_offset
-    b_rotation = key_gen.b_rotation + date_array[1].to_i
-  end
-
-  def c_offset
-    c_rotation = key_gen.c_rotation + date_array[2].to_i
-  end
-
-  def d_offset
-    d_rotation = key_gen.d_rotation + date_array[3].to_i
+    complete_key = []
+    counter = 0
+    4.times do
+      offset_rotation = key_gen.rotation[counter] + date_array[counter].to_i
+      complete_key << offset_rotation
+      counter += 1
+    end
+    complete_key
   end
 end

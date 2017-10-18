@@ -6,7 +6,6 @@ module Characters
     Hash[characters.zip(rotated_characters)]
   end
 
-
   def encrypt_letter(letter, rotation)
     cipher_for_rotation = cipher(rotation)
     cipher_for_rotation[letter]
