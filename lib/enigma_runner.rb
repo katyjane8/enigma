@@ -1,5 +1,5 @@
-require './lib/key_generator'
-require './lib/offset_calculator'
+require_relative 'key_generator'
+require_relative 'offset_calculator'
 
 kg = KeyGenerator.new
 kg.run

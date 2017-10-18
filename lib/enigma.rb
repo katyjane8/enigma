@@ -1,4 +1,4 @@
-require '../enigma_runner'
+require_relative 'enigma_runner'
 
 file_in        = ARGV[0]
 file_out       = ARGV[1]
@@ -13,11 +13,7 @@ encrypt = Encrypt.new(encrypt_this)
 output = File.open(file_out, "w+")
 output.write(encrypt.decrypt)
 
-<<<<<<< HEAD
-puts "Created #{file_out} with the key #{kg.key_output} and date #{oc.date_format}."
-=======
 puts puts "Created #{file_out} with the key #{kg.key_output} and date #{oc.date_format}."
->>>>>>> katy
 
   #call all files!!
 

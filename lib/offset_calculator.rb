@@ -27,7 +27,7 @@ class OffsetCalculator
     complete_key = []
     counter = 0
     4.times do
-      offset_rotation = key_gen.rotation[counter] + date_array[counter].to_i
+      offset_rotation = key_gen.rotation[counter].to_i + date_array[counter].to_i
       complete_key << offset_rotation
       counter += 1
     end

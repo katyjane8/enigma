@@ -11,11 +11,8 @@ class OffsetCalculatorTest < Minitest::Test
   end
 
   def test_any_date_squared
-    key_gen = KeyGenerator.new
-    offset_calc = OffsetCalculator.new(key_gen, Date.new(2015, 11, 12))
-    result = offset_calc.date_squared
-    kg = KeyGenerator.new
-    oc = OffsetCalculator.new(kg, Date.new(2015, 11, 12))
+    key_gen = KeyGenerator.new(23456)
+    oc = OffsetCalculator.new(key_gen, Date.new(2015, 11, 12))
     result = oc.date_squared
 
     assert_equal 14668843225, result
@@ -26,7 +23,7 @@ class OffsetCalculatorTest < Minitest::Test
     offset_calc = OffsetCalculator.new(key_gen, Date.today)
     result = offset_calc.date_squared
 
-    assert_equal 25926474289, result
+    assert_equal 32767154289, result
   end
 
   def test_date_array
@@ -38,27 +35,24 @@ class OffsetCalculatorTest < Minitest::Test
     assert_equal "4289", offset_calc.date_array.join
   end
 
-  def test_if_a_offset_grabs_index_zero
-    key_gen = KeyGenerator.new
-    offset_calc = OffsetCalculator.new(key_gen, Date.today)
-    result = offset_calc.date_array
-    kg = KeyGenerator.new
-    oc = OffsetCalculator.new(kg, Date.today)
-    result = oc.date_squared
+  def test_if_offset_key_grabs_index_zero
+    key_gen = KeyGenerator.new(34534)
+    oc = OffsetCalculator.new(key_gen, Date.new(2015, 11, 12))
+    result = oc.offset_key
 
-    assert_equal 29246814289, result
+    assert_equal 37, result[0]
   end
 
   def test_date_array
-    kg = KeyGenerator.new
-    oc = OffsetCalculator.new(kg, Date.today)
+    key_gen = KeyGenerator.new
+    oc = OffsetCalculator.new(key_gen, Date.today)
     result = oc.date_array
 
     assert_equal 4, oc.date_array.length
     assert_equal "4289", oc.date_array.join
   end
 
-  def test_if_a_offset_grabs_index_zero
+  def test_if_offset_key_grabs_index_zero
     kg = KeyGenerator.new
     oc = OffsetCalculator.new(kg, Date.today)
     result = oc.date_array
@@ -66,54 +60,36 @@ class OffsetCalculatorTest < Minitest::Test
     assert_equal "4", result[0]
   end
 
-  def test_if_b_offset_grabs_index_one
+  def test_if_offset_key_grabs_index_one
     key_gen = KeyGenerator.new
     offset_calc = OffsetCalculator.new(key_gen, Date.today)
     result = offset_calc.date_array
-    kg = KeyGenerator.new
-    oc = OffsetCalculator.new(kg, Date.today)
-    result = oc.date_array
 
     assert_equal "2", result[1]
   end
 
-  def test_if_c_offset_grabs_index_two
+  def test_if_offset_key_grabs_index_two
     key_gen = KeyGenerator.new
     offset_calc = OffsetCalculator.new(key_gen, Date.today)
     result = offset_calc.date_array
-    kg = KeyGenerator.new
-    oc = OffsetCalculator.new(kg, Date.today)
-    result = oc.date_array
-
 
     assert_equal "8", result[2]
   end
 
-  def test_if_d_offset_grabs_index_three
+  def test_if_offset_key_grabs_index_three
     key_gen = KeyGenerator.new
     offset_calc = OffsetCalculator.new(key_gen, Date.today)
     result = offset_calc.date_array
-    kg = KeyGenerator.new
-    oc = OffsetCalculator.new(kg, Date.today)
-    result = oc.date_array
 
     assert_equal "9", result[3]
   end
 
-  def test_offset_method
+  def test_offset_method_returns_array_class
     kg = KeyGenerator.new
     oc = OffsetCalculator.new(kg, Date.today)
-    result = oc.offset
+    result = oc.offset_key
 
-
-    assert_equal Integer, oc.offset.class
+    assert_equal Array, result.class
   end
 
-  def test_offset_method
-    key_gen = KeyGenerator.new
-    offset_calc = OffsetCalculator.new(key_gen, Date.today)
-    # result = offset_calc.offset
-
-    assert_equal Integer, offset_calc.a_offset.class
-  end
 end
