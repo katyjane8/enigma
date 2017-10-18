@@ -79,15 +79,3 @@ enc = Encrypt.new
 oc = OffsetCalculator.new
 puts enc.output
 puts enc.splits_into_arrays("try this string")
-# print enc.a_rotated("try this string"); puts ""; puts ""
-# print enc.smush("try this string"); puts ""
-# print enc.encrypta("try this string")
-# print enc.b_splits("try this string"); puts ""
-# print enc.b_rotated("try this string"); puts ""; puts ""
-#
-# print enc.c_splits("try this string"); puts ""
-# print enc.c_rotated("try this string"); puts ""; puts ""
-#
-# print enc.d_splits("try this string"); puts ""
-# print enc.d_rotated("try this string"); puts ""; puts ""
-# puts "#{enc.a_rotated("try this string") + enc.b_rotated("try this string") + enc.c_rotated("try this string") + enc.d_rotated("try this string")}"

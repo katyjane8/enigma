@@ -24,6 +24,3 @@ class KeyGenerator
     @key_helper
   end
 end
-
-foo = KeyGenerator.new
-puts foo.rotation

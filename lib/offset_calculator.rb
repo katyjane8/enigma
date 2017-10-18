@@ -23,8 +23,12 @@ class OffsetCalculator
     convert_offset[-4, 4]
   end
 
+  def offset_key
+    
+  end
+
   def a_offset
-    a_rotation = key_gen.a_rotation + date_array[0].to_i
+    a_rotation = key_gen.rotation[0] + date_array[0].to_i
   end
 
   def b_offset
