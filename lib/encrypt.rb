@@ -19,7 +19,7 @@ class Encrypt
     splits_array = []
     counter = 0
     4.times do
-       splits_array << string.chars.map.with_index do |splits, i|
+      splits_array << string.chars.map.with_index do |splits, i|
         splits if i % 4 == counter
       end.compact.join
       counter += 1
