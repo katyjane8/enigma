@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 require "minitest/autorun"
 require "minitest/pride"
-require "./lib/offset_calculator"
 require "./lib/encrypt"
+require_relative "test_helper"
 
 class EncryptTest < Minitest::Test
   def test_it_exists
