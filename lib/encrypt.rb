@@ -15,23 +15,24 @@ class Encrypt
     @rotation    = rotation
   end
 
-  def a_splits(string)
-    splitter = string.chars
-    a_string = splitter.each_with_index.map { |splits, i| splits if i% 4 == 0 }
-    a_string.compact.join
+  def splits_into_arrays(string)
+    splits_array = []
+    counter = 0
+    4.times do
+       splits_array << string.chars.map.with_index do |splits, i|
+        splits if i % 4 == counter
+      end.compact.join
+      counter += 1
+    end
+    splits_array
   end
 
   def a_rotated(string)
-    encrypt(a_splits(string), offset_calc.a_offset)
-  end
-
-  def b_splits(string)
-    splitter = string.chars
-    b_string = splitter.each_with_index.map { |splits, i| splits if i% 4 == 1 }
-    b_string.compact.join
+    encrypt_string(splits_into_arrays(string)), offset_calc.a_offset)
   end
 
   def b_rotated(string)
+
     encrypt(b_splits(string), offset_calc.b_offset)
   end
 
@@ -41,17 +42,11 @@ class Encrypt
   end
 
   def c_rotated(string)
-    encrypt(c_splits(string), offset_calc.c_offset)
-  end
-
-  def d_splits(string)
-    splitter = string.chars
-    d_string = splitter.each_with_index.map { |splits, i| splits if i% 4 == 3 }
-    d_string.compact.join
+    encrypt_string(c_splits(string), offset_calc.c_offset)
   end
 
   def d_rotated(string)
-    encrypt(d_splits(string), offset_calc.d_offset)
+    encrypt_string(d_splits(string), offset_calc.d_offset)
   end
 
   def smush(string)
@@ -86,9 +81,9 @@ enc = Encrypt.new
 oc = OffsetCalculator.new
 
 puts enc.output
-print enc.a_splits("try this string"); puts ""
-print enc.a_rotated("try this string"); puts ""; puts ""
-print enc.smush("try this string"); puts ""
+puts enc.splits_into_arrays("try this string")
+# print enc.a_rotated("try this string"); puts ""; puts ""
+# print enc.smush("try this string"); puts ""
 # print enc.encrypta("try this string")
 
 # print enc.b_splits("try this string"); puts ""
