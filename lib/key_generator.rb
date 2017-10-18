@@ -14,7 +14,7 @@ class KeyGenerator
     counter = 0
     4.times do
       pre_rotation = key[counter] + key[counter + 1]
-      rotated_key << pre_rotation.to_i
+      rotated_key << pre_rotation
       counter += 1
     end
     rotated_key
@@ -24,3 +24,7 @@ class KeyGenerator
     @key_helper
   end
 end
+
+kg = KeyGenerator.new
+puts kg.generate_key
+puts kg.rotation(key = @key_helper)
