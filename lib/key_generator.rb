@@ -9,27 +9,21 @@ class KeyGenerator
     5.times.map{rand(10)}.join
   end
 
-  def a_rotation(key = @key_helper)
-    a_rot = key[0] + key[1]
-    a_rot.to_i
-  end
-
-  def b_rotation(key = @key_helper)
-    b_rot = key[1] + key[2]
-    b_rot.to_i
-  end
-
-  def c_rotation(key = @key_helper)
-    c_rot = key[2] + key[3]
-    c_rot.to_i
-  end
-
-  def d_rotation(key = @key_helper)
-    d_rot = key[3] + key[4]
-    d_rot.to_i
+  def rotation(key = @key_helper)
+    rotated_key = []
+    i = 0
+    4.times do
+      pre_rotation = key[i] + key[i + 1]
+      rotated_key << pre_rotation.to_i
+      i += 1
+    end
+    rotated_key
   end
 
   def key_output
     @key_helper
   end
 end
+
+foo = KeyGenerator.new
+puts foo.rotation
