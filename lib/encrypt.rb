@@ -32,7 +32,13 @@ class Encrypt
   end
 
   def b_rotated(string)
-    encrypt_string(b_splits(string), offset_calc.b_offset)
+
+    encrypt(b_splits(string), offset_calc.b_offset)
+  end
+
+  def c_splits(string)
+    splitter = string.chars
+    c_string = splitter.each_with_index.map { |splits, i| splits if i% 4 == 2 }
   end
 
   def c_rotated(string)
