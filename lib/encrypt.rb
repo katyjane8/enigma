@@ -54,6 +54,29 @@ class Encrypt
     encrypt(d_splits(string), offset_calc.d_offset)
   end
 
+  def smush(string)
+    smush = []
+    smush_me = a_rotated(string).chars + b_rotated(string).chars + c_rotated(string).chars + d_rotated(string).chars
+    smush << smush_me
+    smushy = smush.flatten
+    a_smush = []
+    b_smush = []
+    c_smush = []
+    d_smush = []
+    smushy.each_with_index.map do |smush_mahn, i|
+      if i % 4 == 0
+        a_smush << smush_mahn
+      elsif i % 4 == 1
+        b_smush << smush_mahn
+      elsif i % 4 == 2
+        c_smush << smush_mahn
+      elsif i % 4 == 3
+        d_smush << smush_mahn
+      end
+    end
+    smush_master = a_smush + b_smush + c_smush + d_smush
+    smush_master.flatten
+  end
 
   def output
     puts "Created -- with the key #{key_gen.key_output} and date #{offset_calc.date_format}."
@@ -65,6 +88,8 @@ oc = OffsetCalculator.new
 puts enc.output
 print enc.a_splits("try this string"); puts ""
 print enc.a_rotated("try this string"); puts ""; puts ""
+print enc.smush("try this string"); puts ""
+# print enc.encrypta("try this string")
 
 # print enc.b_splits("try this string"); puts ""
 # print enc.b_rotated("try this string"); puts ""; puts ""
