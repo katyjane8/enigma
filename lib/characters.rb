@@ -10,7 +10,7 @@ module Characters
     cipher_for_rotation[letter]
   end
 
-  def encrypt(string, rotation)
+  def encrypt_string(string, rotation)
     letters = string.split("")
     results = letters.collect { |letter| encrypted_letter = encrypt_letter(letter, rotation) }
     results.join
