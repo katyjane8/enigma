@@ -11,11 +11,11 @@ class KeyGenerator
 
   def rotation(key = @key_helper)
     rotated_key = []
-    i = 0
+    counter = 0
     4.times do
-      pre_rotation = key[i] + key[i + 1]
+      pre_rotation = key[counter] + key[counter + 1]
       rotated_key << pre_rotation.to_i
-      i += 1
+      counter += 1
     end
     rotated_key
   end
@@ -24,6 +24,3 @@ class KeyGenerator
     @key_helper
   end
 end
-
-foo = KeyGenerator.new
-puts foo.rotation
