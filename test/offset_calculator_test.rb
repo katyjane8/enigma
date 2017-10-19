@@ -31,7 +31,7 @@ class OffsetCalculatorTest < Minitest::Test
     offset_calc = OffsetCalculator.new(key_gen, Date.today)
     result = offset_calc.date_squared
 
-    assert_equal 32767154289, result
+    assert_equal 36487494289, result
   end
 
   def test_date_last_four

@@ -53,7 +53,6 @@ class EncryptTest < Minitest::Test
 
   def test_write_file
     enc = Encrypt.new
-    # enc.encrypt
     file = File.open('./test_write_file.txt', 'r')
     file_text = file.read
     file.close

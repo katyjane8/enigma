@@ -51,22 +51,21 @@ class Encrypt
   end
 
   def encrypt
-    key_gen = KeyGenerator.new
-    offset_calc = OffsetCalculator.new
     enc = Encrypt.new
+    read_this = ARGV[0]
+    encrypt_this = ARGV[1]
 
-    mes_file = File.open('./message.txt')
-    txt = mes_file.read()
-    mes_file.close
+    message_file = File.open(ARGV[0], "r")
+    read_message = message_file.read
+    message_file.close
 
-    secret = enc.final_rotate(txt.chomp)
+    secret = enc.final_rotate(read_message)
 
-    coded_file = ARGV[1]
-    c_file = File.open('./encrypted.txt', "w")
-    c_file.write(secret)
-    c_file.close
+    coded_file = File.open(ARGV[1], "w")
+    coded_file.write(secret)
+    coded_file.close
 
-    puts "Created '#{ARGV[1]}' with the key #{key_gen.key} and date #{offset_calc.date_format}."
+    print "Created '#{ARGV[1]}' with the key #{key_gen.key} and date #{offset_calc.date_format}."
   end
 end
 
