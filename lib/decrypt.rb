@@ -10,7 +10,7 @@ class Decrypt
               :key_gen,
               :string
 
-  def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new, encrypt = Encrypt.new)
+  def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new)
     @offset_calc = offset_calc
     @key_gen     = key_gen
   end
@@ -37,8 +37,3 @@ class Decrypt
     puts "You have entered the date: #{date_answer}."
   end
 end
-
-
-
-smush = Decrypt.new
-smush.what_is_the_key_code

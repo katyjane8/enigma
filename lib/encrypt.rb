@@ -38,6 +38,7 @@ class Encrypt
       counter += 1
     end
     collected_array
+    # require "pry"; binding.pry
   end
 
   def smush(string)
@@ -52,11 +53,26 @@ class Encrypt
     smush.compact.join
   end
 
-  def output
-    puts "Created -- with the key #{key_gen.key} and date #{offset_calc.date_format}."
+  def encrypt
+    key_gen = KeyGenerator.new
+    offset_calc = OffsetCalculator.new
+    enc = Encrypt.new
+    # require "pry"; binding.pry
+
+    mes_file = File.open('./message.txt')
+    txt = mes_file.read()
+    mes_file.close
+
+    secret = enc.smush(txt.chomp)
+
+    coded_file = ARGV[1]
+    c_file = File.open('./encrypted.txt', "w")
+    c_file.write(secret)
+    c_file.close
+
+    puts "Created '#{ARGV[1]}' with the key #{key_gen.key} and date #{offset_calc.date_format}."
   end
 end
+
 enc = Encrypt.new
-puts enc.output
-puts enc.final_key("try this string")
-puts enc.smush("try this string")
+puts enc.encrypt

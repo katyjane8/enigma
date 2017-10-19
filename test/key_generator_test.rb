@@ -21,4 +21,4 @@ class KeyGeneratorTest < Minitest::Test
 
     assert_equal "23", key_gen.rotation[0]
   end
-end
+end 
