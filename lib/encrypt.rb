@@ -9,7 +9,8 @@ class Encrypt
               :key_gen,
               :string
 
-  def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new, rotation = @rotation)
+  def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new,
+    rotation = @rotation)
     @offset_calc = offset_calc
     @key_gen     = key_gen
     @rotation    = rotation
@@ -52,7 +53,7 @@ class Encrypt
   end
 
   def output
-    puts "Created -- with the key #{key_gen.key_output} and date #{offset_calc.date_format}."
+    puts "Created -- with the key #{key_gen.key} and date #{offset_calc.date_format}."
   end
 end
 enc = Encrypt.new
