@@ -7,7 +7,7 @@ class Encrypt
 
   attr_reader :offset_calc,
               :key_gen,
-              :string
+              :message
 
   def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new, rotation = @rotation)
     @offset_calc = offset_calc
@@ -15,11 +15,11 @@ class Encrypt
     @rotation    = rotation
   end
 
-  def splits_into_sections(string)
+  def splits_into_sections(message)
     splits_sections = []
     counter = 0
     4.times do
-      splits_sections << string.chars.map.with_index do |split, i|
+      splits_sections << message.chars.map.with_index do |split, i|
         split if i % 4 == counter
       end.compact.join
       counter += 1
@@ -27,8 +27,8 @@ class Encrypt
     splits_sections
   end
 
-  def final_key(string)
-    split_sections = splits_into_sections(string)
+  def final_key(message)
+    split_sections = splits_into_sections(message)
     offset_the_key = offset_calc.offset_key
     collected_sections = []
     counter = 0
@@ -39,11 +39,11 @@ class Encrypt
     collected_sections
   end
 
-  def final_rotate(string)
+  def final_rotate(message)
     final_rotations = []
     counter = 0
     4.times do
-      final_rotations << final_key(string).map.with_index do |final_rotation, i|
+      final_rotations << final_key(message).map.with_index do |final_rotation, i|
         final_rotation if i % 4 == counter
       end
       counter += 1
