@@ -34,18 +34,6 @@ class Decrypt
     key_answer.to_i.to_s.length == 5
   end
 
-  def rotation(key_answer)
-    key = fetch_key(key_answer)
-    rotated_key = []
-    counter = 0
-    4.times do
-      pre_rotation = key[counter] + key[counter + 1]
-      rotated_key << pre_rotation.to_i
-      counter += 1
-    end
-    rotated_key
-  end
-
   def what_is_the_date
     puts "Input a date in DDMMYY format."
     date_answer = gets.chomp
@@ -73,20 +61,4 @@ class Decrypt
     convert_offset = date_squared.to_s.chars
     convert_offset[-4, 4]
   end
-
-  # def offset_key
-  #   complete_key = []
-  #   counter = 0
-  #   4.times do
-  #     offset_rotation = key_gen.rotation[counter] + date_last_four[counter].to_i
-  #     complete_key << offset_rotation
-  #     counter += 1
-  #   end
-  #   complete_key
-  # end
 end
-
-smush = Decrypt.new
-p smush.rotation(12345)
-p smush.date_squared(131017)
-p smush.date_last_four(17165454289)
