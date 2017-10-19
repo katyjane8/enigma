@@ -12,9 +12,9 @@ class EncryptTest < Minitest::Test
 
   def test_string_splits_into_array
     enc = Encrypt.new
-    string = "super cool string"
+    message = "super cool string"
 
-    assert_equal ["srotg", "u lr", "pc i", "eosn"], enc.splits_into_arrays(string)
+    assert_equal ["srotg", "u lr", "pc i", "eosn"], enc.splits_into_sections(message)
   end
 
   def test_string_can_become_final_key

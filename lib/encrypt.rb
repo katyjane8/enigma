@@ -12,7 +12,6 @@ class Encrypt
   def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new)
     @offset_calc = offset_calc
     @key_gen     = key_gen
-    @rotation    = rotation
   end
 
   def splits_into_sections(message)
@@ -60,7 +59,7 @@ class Encrypt
     txt = mes_file.read()
     mes_file.close
 
-    secret = enc.smush(txt.chomp)
+    secret = enc.final_rotate(txt.chomp)
 
     coded_file = ARGV[1]
     c_file = File.open('./encrypted.txt', "w")
