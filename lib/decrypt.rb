@@ -34,6 +34,18 @@ class Decrypt
     key_answer.to_i.to_s.length == 5
   end
 
+  def rotation(key_answer)
+    key = fetch_key(key_answer)
+    rotated_key = []
+    counter = 0
+    4.times do
+      pre_rotation = key[counter] + key[counter + 1]
+      rotated_key << pre_rotation.to_i
+      counter += 1
+    end
+    rotated_key
+  end
+
   def what_is_the_date
     puts "Input a date in DDMMYY format."
     date_answer = gets.chomp
@@ -57,35 +69,24 @@ class Decrypt
     fetch_date(date_answer) ** 2
   end
 
-  def date_array(date_answer)
-    convert_offset = date_squared(date_answer).to_s.chars
+  def date_last_four(date_squared)
+    convert_offset = date_squared.to_s.chars
     convert_offset[-4, 4]
   end
-  # check out map here
-  # def rotation
-  #   key = @key.to_s.chars
-  #   rotated_key = []
-  #   counter = 0
-  #   4.times do
-  #     pre_rotation = key[counter] + key[counter + 1]
-  #     rotated_key << pre_rotation.to_i
-  #     counter += 1
-  #   end
-  #   rotated_key
-  # end
+
   # def offset_key
   #   complete_key = []
   #   counter = 0
   #   4.times do
-  #     offset_rotation = key_gen.rotation[counter] + date_array[counter].to_i
+  #     offset_rotation = key_gen.rotation[counter] + date_last_four[counter].to_i
   #     complete_key << offset_rotation
   #     counter += 1
   #   end
   #   complete_key
   # end
-
 end
 
-# smush = Decrypt.new
-# puts smush.what_is_the_date
-# puts smush.date_squared
+smush = Decrypt.new
+p smush.rotation(12345)
+p smush.date_squared(131017)
+p smush.date_last_four(17165454289)
