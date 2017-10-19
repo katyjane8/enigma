@@ -20,5 +20,47 @@ class KeyGeneratorTest < Minitest::Test
     key_gen = KeyGenerator.new(23433)
 
     assert_equal "23", key_gen.rotation[0]
+    key_gen = KeyGenerator.new
+    result = key_gen.generate_key
+    
+    assert_equal 5, result.to_s.length
+  end
+
+  def test_can_we_get_the_first_two_digits_of_our_key
+   key_gen = KeyGenerator.new
+   array = ["1", "2", "3", "4", "5"]
+   result = key_gen.rotation(array)
+
+   assert_equal 2, result.to_s.length
+   assert_equal 12, result[0]
+  end
+
+  def test_can_we_get_the_second_and_third_digits_of_our_key
+    key_gen = KeyGenerator.new
+
+    array = ["1", "2", "3", "4", "5"]
+    result = key_gen.rotation(array)
+
+    assert_equal 2, result.to_s.length
+    assert_equal 23, result[1]
+  end
+
+  def test_can_we_get_the_third_and_fourth_digits_of_our_key
+    key_gen = KeyGenerator.new
+    array = ["1", "2", "3", "4", "5"]
+    result = key_gen.rotation(array)
+
+    assert_equal 2, result.to_s.length
+    assert_equal 34, result[2]
+  end
+
+  def test_can_we_get_the_last_two_digits_of_our_key
+    key_gen = KeyGenerator.new
+
+    array = ["1", "2", "3", "4", "5"]
+    result = key_gen.rotation(array)
+
+    assert_equal 2, result.to_s.length
+    assert_equal 45, result[3]
   end
 end 

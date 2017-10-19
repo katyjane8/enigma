@@ -1,5 +1,4 @@
 module Characters
-
   def cipher(rotation)
     characters = ("a".."z").to_a + (0..9).to_a + (" ".."/").to_a
     rotated_characters = characters.rotate(rotation)

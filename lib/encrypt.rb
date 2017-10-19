@@ -7,8 +7,7 @@ class Encrypt
 
   attr_reader :offset_calc,
               :key_gen,
-              :string,
-              :rotation
+              :message
 
   def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new)
     @offset_calc = offset_calc
@@ -16,48 +15,46 @@ class Encrypt
     @rotation    = rotation
   end
 
-  def splits_into_arrays(string)
-    splits_array = []
+  def splits_into_sections(message)
+    splits_sections = []
     counter = 0
     4.times do
-       splits_array << string.chars.map.with_index do |splits, i|
-        splits if i % 4 == counter
+      splits_sections << message.chars.map.with_index do |split, i|
+        split if i % 4 == counter
       end.compact.join
       counter += 1
     end
-    splits_array
+    splits_sections
   end
 
-  def final_key(string)
-    split_array = splits_into_arrays(string)
+  def final_key(message)
+    split_sections = splits_into_sections(message)
     offset_the_key = offset_calc.offset_key
-    collected_array = []
+    collected_sections = []
     counter = 0
     4.times do
-      collected_array << encrypt_string(split_array[counter], offset_the_key[counter])
+      collected_sections << encrypt_string(split_sections[counter], offset_the_key[counter])
       counter += 1
     end
-    collected_array
-    # require "pry"; binding.pry
+    collected_sections
   end
 
-  def smush(string)
-    smush = []
+  def final_rotate(message)
+    final_rotations = []
     counter = 0
     4.times do
-      smush << final_key(string).map.with_index do |smush_mahn, i|
-        smush_mahn if i % 4 == counter
+      final_rotations << final_key(message).map.with_index do |final_rotation, i|
+        final_rotation if i % 4 == counter
       end
       counter += 1
     end
-    smush.compact.join
+    final_rotations.compact.join
   end
 
   def encrypt
     key_gen = KeyGenerator.new
     offset_calc = OffsetCalculator.new
     enc = Encrypt.new
-    # require "pry"; binding.pry
 
     mes_file = File.open('./message.txt')
     txt = mes_file.read()
