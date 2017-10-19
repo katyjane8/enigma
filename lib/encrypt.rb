@@ -7,9 +7,10 @@ class Encrypt
 
   attr_reader :offset_calc,
               :key_gen,
-              :string
+              :string,
+              :rotation
 
-  def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new, rotation = @rotation)
+  def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new)
     @offset_calc = offset_calc
     @key_gen     = key_gen
     @rotation    = rotation
@@ -52,11 +53,10 @@ class Encrypt
   end
 
   def output
-    puts "Created -- with the key #{key_gen.key_output} and date #{offset_calc.date_format}."
+    puts "Created -- with the key #{key_gen.key} and date #{offset_calc.date_format}."
   end
 end
 enc = Encrypt.new
-oc = OffsetCalculator.new
 puts enc.output
 puts enc.final_key("try this string")
 puts enc.smush("try this string")

@@ -1,9 +1,9 @@
-require "minitest/autorun"
-require "minitest/pride"
-require "./lib/decrypt"
-require_relative "test_helper"
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/decrypt'
+require_relative 'test_helper'
 
-class EncryptTest < Minitest::Test
+class DecryptTest < Minitest::Test
   def test_it_exists
     dc = Decrypt.new
 

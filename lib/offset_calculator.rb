@@ -11,7 +11,7 @@ class OffsetCalculator
   end
 
   def date_format
-    "#{@date.mday}#{@date.mon}#{@date.year.to_s[-2, 2]}"
+    "#{date.mday}#{date.mon}#{date.year.to_s[-2, 2]}"
   end
 
   def date_squared

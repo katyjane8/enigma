@@ -10,6 +10,14 @@ class OffsetCalculatorTest < Minitest::Test
     assert_instance_of OffsetCalculator, offset_calc
   end
 
+  def test_date_format_returns_correctly
+    key_gen = KeyGenerator.new(23456)
+    offset_calc = OffsetCalculator.new(key_gen, Date.new(2015, 11, 12))
+    result = offset_calc.date_format
+
+    assert_equal "121115", result
+  end
+
   def test_any_date_squared
     key_gen = KeyGenerator.new(23456)
     oc = OffsetCalculator.new(key_gen, Date.new(2015, 11, 12))
@@ -31,8 +39,8 @@ class OffsetCalculatorTest < Minitest::Test
     offset_calc = OffsetCalculator.new(key_gen, Date.today)
     result = offset_calc.date_array
 
-    assert_equal 4, offset_calc.date_array.length
-    assert_equal "4289", offset_calc.date_array.join
+    assert_equal 4, result.length
+    assert_equal "4289", result.join
   end
 
   def test_if_offset_key_grabs_index_zero
@@ -43,16 +51,15 @@ class OffsetCalculatorTest < Minitest::Test
     assert_equal 37, result[0]
   end
 
-  def test_date_array
+  def test_date_array_length
     key_gen = KeyGenerator.new
     oc = OffsetCalculator.new(key_gen, Date.today)
     result = oc.date_array
 
-    assert_equal 4, oc.date_array.length
-    assert_equal "4289", oc.date_array.join
+    assert_equal 4, result.length
   end
 
-  def test_if_offset_key_grabs_index_zero
+  def test_if_offset_key_grabs_index_zero_for_todays_date
     kg = KeyGenerator.new
     oc = OffsetCalculator.new(kg, Date.today)
     result = oc.date_array

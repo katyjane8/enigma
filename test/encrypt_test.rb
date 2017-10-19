@@ -1,7 +1,7 @@
-require "minitest/autorun"
-require "minitest/pride"
-require "./lib/encrypt"
-require_relative "test_helper"
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/encrypt'
+require_relative 'test_helper'
 
 class EncryptTest < Minitest::Test
   def test_it_exists
@@ -40,5 +40,3 @@ class EncryptTest < Minitest::Test
     refute_equal "!@*", string
   end
 end
-=======
->>>>>>> katy

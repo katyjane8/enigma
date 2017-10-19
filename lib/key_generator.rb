@@ -5,10 +5,6 @@ class KeyGenerator
     @key = key
   end
 
-  # def generate_key
-  #   5.times.map{rand(10)}.join
-  # end
-
   def rotation
     key = @key.to_s.chars
     rotated_key = []

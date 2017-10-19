@@ -9,13 +9,10 @@ class Decrypt
   attr_reader :offset_calc,
               :key_gen,
               :string
-              :encrypt
 
-  def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new, rotation = @rotation, encrypt = Encrypt.new)
+  def initialize(offset_calc = OffsetCalculator.new, key_gen = KeyGenerator.new, encrypt = Encrypt.new)
     @offset_calc = offset_calc
     @key_gen     = key_gen
-    @rotation    = rotation
-    @encrypt     = encrypt
   end
 
   def what_is_the_key_code
