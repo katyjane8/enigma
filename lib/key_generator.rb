@@ -1,15 +1,12 @@
 class KeyGenerator
-  attr_reader :key_helper
+  attr_reader :key
 
-  def initialize
-    @key_helper = generate_key
+  def initialize(key = 5.times.map{rand(10)}.join)
+    @key = key
   end
 
-  def generate_key
-    5.times.map{rand(10)}.join
-  end
-
-  def rotation(key = @key_helper)
+  def rotation
+    key = @key.to_s.chars
     rotated_key = []
     counter = 0
     4.times do
@@ -18,9 +15,5 @@ class KeyGenerator
       counter += 1
     end
     rotated_key
-  end
-
-  def key_output
-    @key_helper
   end
 end
