@@ -68,6 +68,6 @@ class Encrypt
     print "Created '#{ARGV[1]}' with the key #{key_gen.key} and date #{offset_calc.date_format}."
   end
 end
-
-enc = Encrypt.new
-puts enc.encrypt
+#
+# enc = Encrypt.new
+# puts enc.encrypt
