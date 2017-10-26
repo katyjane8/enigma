@@ -1,7 +1,7 @@
+require_relative 'test_helper'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/encrypt'
-require_relative 'test_helper'
 
 class EncryptTest < Minitest::Test
   def test_it_exists
@@ -53,7 +53,6 @@ class EncryptTest < Minitest::Test
 
   def test_write_file
     enc = Encrypt.new
-    # enc.encrypt
     file = File.open('./test_write_file.txt', 'r')
     file_text = file.read
     file.close
