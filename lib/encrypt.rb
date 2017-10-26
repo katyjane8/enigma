@@ -1,7 +1,7 @@
 require_relative 'offset_calculator'
 require_relative 'key_generator'
 require_relative 'characters'
-
+#git hub merge conflict
 class Encrypt
   include Characters
 
